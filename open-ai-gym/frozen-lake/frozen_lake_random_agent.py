@@ -24,4 +24,3 @@ for i in range(n_games):
 
 plt.plot(win_pct)
 plt.show()
-

@@ -19,3 +19,6 @@ Agent that takes random actions
 
 Agent that takes actions based on a pre-determiined policy
 
+#### [Frozen Lake Q-Learning Agent](open-ai-gym/frozen-lake/frozen_lake_q_agent)
+
+Agent that takes actions based on a Q table learned with the Bellman Equation

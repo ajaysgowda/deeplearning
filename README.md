@@ -15,7 +15,7 @@
 
 Agent that takes random actions
 
-#### [Frozen Lake Determinitstic Policy Agent](open-ai-gym/frozen-lake/frozen_lake_determinitstic_policy_agent.py)
+#### [Frozen Lake Determinitstic Policy Agent](open-ai-gym/frozen-lake/frozen_lake_deterministic_policy_agent.py)
 
 Agent that takes actions based on a pre-determiined policy
 

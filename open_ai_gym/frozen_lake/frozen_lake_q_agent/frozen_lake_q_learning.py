@@ -5,7 +5,7 @@ import gym
 import numpy as np
 import matplotlib.pyplot as plt
 
-from q_agent import QAgent
+from .q_agent import QAgent
 
 if __name__ == '__main__':
     env = gym.make('FrozenLake-v0')

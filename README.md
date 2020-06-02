@@ -1,5 +1,11 @@
 # deeplearning
 
+## Pytorch basics
+
+#### [Pytorch example code](pytorch_basics/pytorch_example.py)
+
+Sample code to show the basics parts of building a NN with pytorch
+
 ## Open AI gym
 
 ### [Frozen Lake](https://gym.openai.com/envs/FrozenLake-v0/)
@@ -22,3 +28,4 @@ Agent that takes actions based on a pre-determiined policy
 #### [Frozen Lake Q-Learning Agent](open-ai-gym/frozen-lake/frozen_lake_q_agent)
 
 Agent that takes actions based on a Q table learned with the Bellman Equation
+

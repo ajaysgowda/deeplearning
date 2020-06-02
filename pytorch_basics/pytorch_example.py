@@ -1,6 +1,7 @@
 """
 pytorch starter code.
 an example on how to use pytorch.
+not meant to run
 """
 # access to layers
 import torch.nn as nn
@@ -76,4 +77,3 @@ class LinearClassifier(nn.Module):
         cost.backward()
 
         self.optimizer.step()
-

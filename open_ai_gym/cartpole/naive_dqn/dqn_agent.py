@@ -107,8 +107,9 @@ def run_dqn_training():
     """
     Trainig environemt
     """
+    # pylint: disable=too-many-locals
     env = gym.make('CartPole-v1')
-    n_games = 1000
+    n_games = 10000
     scores = []
     eps_history = []
 

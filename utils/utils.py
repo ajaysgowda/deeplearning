@@ -28,6 +28,7 @@ def plot_learning_curve(x, scores, epsilons, filename):
 
     ax2.scatter(x, running_avg, color="C1")
     ax2.axes.get_xaxis().set_visible(False)
+    ax2.yaxis.tick_right()
     ax2.set_ylabel("Score", color="C1")
     ax2.yaxis.set_label_position('right')
     ax2.tick_params(axis='y', colors="C1")

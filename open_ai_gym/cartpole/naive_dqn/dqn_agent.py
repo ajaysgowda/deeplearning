@@ -46,7 +46,7 @@ class QAgent:
 
     def __init__(self, input_dims, n_actions, **kwargs):
         # hyper params
-        self.alpha = kwargs.get('alpha', 0.001)
+        self.lr = kwargs.get('lr', 0.0001)
         self.gamma = kwargs.get('gamma', 0.99)
         self.eps_min = kwargs.get('eps_min', 0.01)
         self.eps_dec = kwargs.get('eps_dec', 1e-5)
@@ -64,7 +64,7 @@ class QAgent:
         choose_action based on epsilon greedy method
         """
         if np.random.random() < self.epsilon:
-            action = np.random.choice(range(self.action_space))
+            action = np.random.choice(self.action_space)
         else:
             state = T.tensor(observation, dtype=T.float).to(self.Q.device)
             actions = self.Q.forward(state)
@@ -103,9 +103,12 @@ class QAgent:
         self.decrement_epsilon()
 
 
-if __name__ == '__main__':
+def run_dqn_training():
+    """
+    Trainig environemt
+    """
     env = gym.make('CartPole-v1')
-    n_games = 100
+    n_games = 1000
     scores = []
     eps_history = []
 
@@ -118,21 +121,22 @@ if __name__ == '__main__':
         obs = env.reset()
 
         while not done:
-            act = agent.choose_action(obs)
-            obs_, reward, done, info = env.step(act)
+            action = agent.choose_action(obs)
+            obs_, reward, done, _ = env.step(action)
             score += reward
-            agent.learn(obs, act, reward, obs_)
+            agent.learn(obs, action, reward, obs_)
             obs = obs_
 
         scores.append(score)
         eps_history.append(agent.epsilon)
 
         if i % 100 == 0:
-            avg_score = np.mean(score[-100:])
+            avg_score = np.mean(scores[-100:])
             print(f"Episode: {i} |"
                   f"Score: {score: .1f} |"
                   f"Avg Score: {avg_score: .1f} |"
                   f"Epsilon: {agent.epsilon: .2f}")
-    filename = 'cartpole_naive_dqn.png'
+    filename = 'plots/cartpole_naive_dqn.png'
+
     x = [i+1 for i in range(n_games)]
     plot_learning_curve(x, scores, eps_history, filename)
